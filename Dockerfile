@@ -16,5 +16,5 @@ RUN rm -rf /var/nameko/wheelhouse
 EXPOSE 8000
 
 CMD . /appenv/bin/activate; \
-    alembic upgrade head \
+    alembic upgrade head; \
     nameko run --config config.yml orders.service --backdoor 3000
