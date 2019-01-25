@@ -30,7 +30,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: postgresql
-                key: postgres-password
+                key: postgresql-password
           - name: RABBIT_HOST
             value: rabbitmq
           - name: RABBIT_MANAGEMENT_PORT

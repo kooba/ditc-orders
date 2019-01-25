@@ -16,6 +16,8 @@ build-image:
 push-image:
 	docker push jakubborys/ditc-orders:$(TAG)
 
+build: run-wheel-builder build-image push-image
+
 # Kubernetes
 
 test-chart:
