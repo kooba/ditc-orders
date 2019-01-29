@@ -21,6 +21,7 @@ RUN rm -rf /var/nameko/wheelhouse
 EXPOSE 8000
 
 CMD . /appenv/bin/activate && \
+    while ! pg_isready -h postgresql; do echo "waiting for db"; sleep 5; done && \
     PGPASSWORD=${DB_PASSWORD} PGUSER=${DB_USER} PGHOST=${DB_HOST} \
     psql -tc "SELECT 1 FROM pg_database WHERE datname = 'orders'" | \
     grep -q 1 || PGPASSWORD=${DB_PASSWORD} PGUSER=${DB_USER} PGHOST=${DB_HOST} \
