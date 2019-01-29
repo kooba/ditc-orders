@@ -23,7 +23,7 @@ build: run-wheel-builder build-image push-image
 
 release:
 	git add .
-	git commit -m "Release $(date)"
+	git commit -m "Release $$(date)"
 	git push origin service-impl
 	$(MAKE) build
 	curl -XDELETE -H "Authorization: token $(GITHUB_TOKEN)" \
