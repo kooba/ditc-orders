@@ -32,9 +32,8 @@ retag:
 release:
 	git add .
 	git commit -m "Release $$(date)"
-	git push origin service-impl
-	$(MAKE) build
-	$(MAKE) retag
+	git push origin $(REF)
+	$(MAKE) build-image push-image retag
 
 # Kubernetes
 
